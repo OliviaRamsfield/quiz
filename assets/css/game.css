@@ -1,0 +1,44 @@
+body {
+    color: var(--primary-color);
+    padding-top: 100px;
+    padding-left: 45%;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.choice-container {
+    display: flex;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 10px;
+    background: var(--secondary-color);
+    font-size: 20px;
+    padding: 5px;
+}
+
+.choice-container:hover {
+    background: var(--quaternary-color);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.choice-prefix {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.choice-text {
+    padding: 5px;
+}
+
+.correct {
+    background: var(--tertiary-color)
+}
+
+.incorrect {
+    background: red;
+}
