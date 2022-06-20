@@ -68,3 +68,19 @@ h1 {
     cursor: pointer;
     transform: scale(1.1);
 }
+
+/* High Score Page Styles */
+h1.end {
+    padding-top: 40 px;
+}
+
+.end-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+  
+}

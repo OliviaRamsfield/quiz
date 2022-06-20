@@ -15,7 +15,7 @@ var maxQuestions = 4;
       choice2: "Heavy Text Moves Language",
       choice3: "Hypertext Makes Lines",
       choice4: "How Technology Makes Language",
-      answer: 2,  
+      answer: 1,  
     },
     {
         question: "What do you use to observe an event in JavaScript?",
