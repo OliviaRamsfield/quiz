@@ -1,14 +1,15 @@
-var questions = document.querySelector("#questions");
-const choices = Array.from(document.querySelectorAll(".choice-text"));
+var question = document.querySelector("#question")
+const choices = Array.from(document.querySelectorAll(".choice-text"))
+var scoreText = document.querySelector('#score')
 
-var currentQuestion = {};
-var correctAnswer = true;
-var questionCounter = 0;
-var allQuestions = [];
-var maxQuestions = 4;
+var currentQuestion = {}
+var correctAnswer = true
+var questionCounter = 0
+var allQuestions = []
+var maxQuestions = 4
 
 // array of possible questions and answers
- questions = [
+ var questions = [
     {
       question: "What does HTML stand for?",
       choice1: "Hypertext Markup Language",
@@ -43,28 +44,34 @@ var maxQuestions = 4;
     }
 ]
 
+var scorePoints = 100
+var maxQuestions = 4
+
 // function to start game
 function startGame() {
-    questionCounter = 0;
-    allQuestions = [...questions];
+    questionCounter = 0
+    score = 0
+    allQuestions = [...questions]
     getNewQuestion();
 };
 
 // function to cycle through questions array
 function getNewQuestion() {
-    if (allQuestions.length === 0 || questionCounter > maxQuestions)
-    questionCounter++
+    if (allQuestions.length === 0 || questionCounter > maxQuestions) {
+        localStorage.setItem('mostRecentScore', score)
+        return window.location.assign('highscore.html')
+    }
 
-    const questionsIndex = Math.floor(Math.random() * allQuestions.length);
-    currentQuestion = allQuestions[questionsIndex];
-    question.innerText = currentQuestion.question;
+    const questionsIndex = Math.floor(Math.random() * allQuestions.length)
+    currentQuestion = allQuestions[questionsIndex]
+    question.innerText = currentQuestion.question
 
     choices.forEach(choice => {
-        const number = choice.dataset['number'];
-        choice.innerHTML = currentQuestion['choice' + number];
+        const number = choice.dataset['number']
+        choice.innerHTML = currentQuestion['choice' + number]
     })
 
-    allQuestions.splice(questionsIndex, 1);
+    allQuestions.splice(questionsIndex, 1)
 correctAnswer = true;
 };
 
@@ -79,9 +86,9 @@ choices.forEach(choices => {
         var classToApply = selectedAnswer == currentQuestion.answer ? 'correct' :
         'incorrect'
 
-        // correct after adding in timer
-        if (classToApply === 'incorrect') {
-            // incrementTime()
+        // correct answer icreases score by 100
+        if (classToApply === 'correct') {
+            incrementScore(scorePoints)
         }
 
         selectedChoice.parentElement.classList.add(classToApply)
@@ -92,5 +99,10 @@ choices.forEach(choices => {
         }, 1000)
     })
 })
+
+incrementScore = num => {
+    score +=num
+    scoreText.innerText = score
+}
 
 startGame();

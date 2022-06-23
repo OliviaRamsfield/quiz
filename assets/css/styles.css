@@ -70,9 +70,6 @@ h1 {
 }
 
 /* High Score Page Styles */
-h1.end {
-    padding-top: 40 px;
-}
 
 .end-form-container {
     width: 100%;
@@ -82,5 +79,29 @@ h1.end {
 }
 
 input {
-  
+    display:flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#end-text {
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+#saveScoreBtn {
+    border:none;
+}
+
+#highscores {
+    border-style: dotted;
+    border-color: var(--tertiary-color);
+    margin-top: 20px;
+
+}
+
+#leader {
+    margin: 10px;
+    color: var(--tertiary-color);
 }
