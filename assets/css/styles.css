@@ -97,11 +97,15 @@ input {
 #highscores {
     border-style: dotted;
     border-color: var(--tertiary-color);
-    margin-top: 20px;
+    
 
 }
 
 #leader {
     margin: 10px;
+    color: var(--tertiary-color);
+}
+
+.high-score {
     color: var(--tertiary-color);
 }

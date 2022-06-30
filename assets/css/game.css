@@ -9,6 +9,16 @@ h2 {
     margin-bottom: 20px;
 }
 
+#countdown-timer {
+    background-color: red;
+    color: var(--primary-color);
+    height: 40px;
+    width: 60px;
+    display: inline-flex;
+    justify-content: center;
+
+}
+
 .container {
     display: flex;
     flex-direction: column;

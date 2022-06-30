@@ -2,6 +2,37 @@ var question = document.querySelector("#question")
 const choices = Array.from(document.querySelectorAll(".choice-text"))
 var scoreText = document.querySelector('#score')
 
+//timer set up
+var startMinutes = 5
+var time = startMinutes * 60
+var countdownEl = document.getElementById("countdown-timer")
+
+//counting down by seconds
+function updateCountdown() {
+    var minutes = Math.floor(time / 60)
+    var seconds = time % 60
+
+    //set timer to 5:00 minutes to start
+    seconds = seconds < 5 ? '0' + seconds : seconds;
+
+    countdownEl.innerHTML = `${minutes}: ${seconds}`
+    time--
+}
+setInterval(updateCountdown, 1000);
+
+//game ends after 5 minutes
+setTimeout(function() {
+    window.location.href='highscore.html'}, 300000);
+
+
+    //modify time based on correct/incorrect answer
+    if (classToApply === 'correct') {
+        incrementTime(time++)
+    } else {
+        time--
+    }
+
+
 var currentQuestion = {}
 var correctAnswer = true
 var questionCounter = 0

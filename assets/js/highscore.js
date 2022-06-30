@@ -5,15 +5,15 @@ var mostRecentScore = localStorage.getItem('mostRecentScore')
 
 var highscores = JSON.parse(localStorage.getItem('highscores')) || []
 
-const maxHighScore = 4
+const maxHighScore = 5
 
 finalScore.innerText = mostRecentScore
 
-username.addEventListener('click', function() {
+username.addEventListener('click', () => {
     saveScoreBtn.disbaled = !username.value
 });
 
-saveHighScore = e => {
+var saveHighScore = e => {
     e.preventDefault ()
 
     var score = {
@@ -26,15 +26,24 @@ saveHighScore = e => {
         return b.score - a.score
     })
 
-    highscores.splice(4)
+    highscores.splice(5)
 
     localStorage.setItem('highscores', JSON.stringify(highscores))
     window.location.assign('/')
+    console.log(score);
 }
 
 var highscoreList = document.querySelector('#highscoreList')
-var highscores = JSON.parse(localStorage.getItem('highscores')) || []
+// var highscores = JSON.parse(localStorage.getItem('highscores')) || []
 
-highscoreList.innerHTML = highscores.map(score => {
-    return '<li class="high-score>${score.name} - ${score.score}</li>'
-}).join('')
+// highscoreList.innerHTML = highscores.map(score => {
+//     return `<li class="high-score>${score.name} - ${score.score}</li>`
+// }).join('')
+
+var createScoreList = function() {
+    var highscores = JSON.parse(localStorage.getItem('highscores'));
+    highscores = $("<li>").addClass("high-score").text(score);
+    highscoreList.appendChild(highscores);
+}
+
+createScoreList();
